@@ -1,22 +1,17 @@
 package com.linguaworld.auth.entity;
 
 
-import javax.persistence.*;
+import org.springframework.data.redis.core.RedisHash;
+
 import java.math.BigInteger;
 
-@Entity
-@Table(name = "users")
+@RedisHash("User")
 public class User {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "user_id")
     private BigInteger id;
 
-    @Column(name = "login")
     private String login;
 
-    @Column(name = "password")
     private String password;
 
     public User() {
